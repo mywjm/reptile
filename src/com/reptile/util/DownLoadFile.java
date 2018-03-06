@@ -1,13 +1,13 @@
 package com.reptile.util;
 
 
-import org.apache.http.HttpException;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.params.BasicHttpParams;
+
 
 import java.io.*;
 
@@ -31,15 +31,25 @@ public class DownLoadFile {
     /**
      * 保存网页字节数组到本地文件， filePath为保存的文件的相对地址
      */
-    private void saveToLocal (byte[] data, String filePath) {
+    private void saveToLocal (InputStream in, String filePath, String fileName) {
         try {
-            DataOutputStream out = new DataOutputStream(new FileOutputStream(new File(filePath)));
-            for (int i = 0; i < data.length; i++) {
-                out.write(data[i]);
+            File tempDir = new File(filePath);
+            if (!tempDir.exists()) {
+                tempDir.mkdirs();
+            }
+            File tempFile = new File(tempDir, fileName);
+            tempFile.createNewFile();
+            DataOutputStream out = new DataOutputStream(new FileOutputStream(tempFile));
+            int len = 0;
+            byte[] b = new byte[1024*5];
+
+            while ((len = in.read(b,0,1024)) != -1){
+                out.write(b,0,len);
             }
             out.flush();
             out.close();
-
+            in.close();
+            System.out.println("----------"+"保存成功"+"----------");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,11 +78,12 @@ public class DownLoadFile {
             }
             //处理HTTP响应的内容
             InputStream content = httpResponse.getEntity().getContent();
-            byte[] response = content.toString().getBytes();
+
             //根据网页URL生成保存时的文件名
-            filePath = "temp\\" + getFileNameByUrl(url, httpResponse.getEntity().getContentType().getValue());
-            System.out.println("-------------------------------"+url+"------------------------------------");
-            saveToLocal(response, filePath);
+            filePath = "temp\\";
+            String fileName = getFileNameByUrl(url, httpResponse.getEntity().getContentType().getValue());
+            System.out.println("-------------------------------download from "+url+"  ------------------------------------");
+            saveToLocal(content, filePath, fileName);
 
         } catch (IOException e) {
             e.printStackTrace();

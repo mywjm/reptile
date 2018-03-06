@@ -20,11 +20,11 @@ public class MyCrawler {
     }
 
     public void crawling (String[] seeds) {
-        //定义过滤器，提取以http://www.lietu.com开头的链接
+        //定义过滤器，提取以http://www.baidu.com开头的链接
         LinkFilter filter = new LinkFilter() {
             @Override
             public boolean accept(String url) {
-                if (url.startsWith("http://www.lietu.com"))
+                if (url.contains("baidu"))
                     return true;
                 else
                 return false;

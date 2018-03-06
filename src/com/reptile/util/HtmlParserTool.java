@@ -3,7 +3,6 @@ package com.reptile.util;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
-import org.htmlparser.filters.LinkStringFilter;
 import org.htmlparser.filters.NodeClassFilter;
 import org.htmlparser.filters.OrFilter;
 import org.htmlparser.tags.LinkTag;
@@ -17,15 +16,15 @@ import java.util.Set;
 public class HtmlParserTool {
     //获取一个网站上的链接，filter 用来过滤链接
     public static Set<String> extracLinks (String url, LinkFilter filter) {
-        Set<String> links = new HashSet<String>();
+        Set<String> links = new HashSet<>();
         try {
-            Parser parser = new Parser();
-            parser.setEncoding("gb2312");
-            //过滤<frame> 标签的filter， 用来提取frame标签里的src属性
+            Parser parser = new Parser(url);
+            parser.setEncoding("UTF-8");
+            //过滤<frame>标签的filter， 用来提取frame标签里的src属性
             NodeFilter frameFilter = new NodeFilter() {
                 @Override
                 public boolean accept(Node node) {
-                    if (node.getText().startsWith("frame src=")) {
+                    if (node.getText().contains("frame src=")) {
                         return true;
                     } else {
                         return false;
@@ -45,20 +44,19 @@ public class HtmlParserTool {
                     if (filter.accept(linkUrl)) {
                         //<a>标签
                         links.add(linkUrl);
-
-                    }else {
-                        //提取<frame>标签里的src属性的链接，如<frame src="test.html"/>
-                        String frame = tag.getText();
-                        int start = frame.indexOf("src=");
-                        frame = frame.substring(start);
-                        int end = frame.indexOf(" ");
-                        if (end == -1) {
-                            end = frame.indexOf(">");
-                        }
-                        String frameUrl = frame.substring(5,end -1);
-                        if (filter.accept(frameUrl)) {
-                            links.add(frameUrl);
-                        }
+                    }
+                }else {
+                    //提取<frame>标签里的src属性的链接，如<frame src="test.html"/>
+                    String frame = tag.getText();
+                    int start = frame.indexOf("src=");
+                    frame = frame.substring(start);
+                    int end = frame.indexOf(" ");
+                    if (end == -1) {
+                        end = frame.indexOf(">");
+                    }
+                    String frameUrl = frame.substring(5,end -1);
+                    if (filter.accept(frameUrl)) {
+                        links.add(frameUrl);
                     }
                 }
             }
