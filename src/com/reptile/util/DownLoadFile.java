@@ -1,6 +1,7 @@
 package com.reptile.util;
 
 
+import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
@@ -67,15 +68,17 @@ public class DownLoadFile {
             }
             //处理HTTP响应的内容
             InputStream content = httpResponse.getEntity().getContent();
-
+            byte[] response = content.toString().getBytes();
             //根据网页URL生成保存时的文件名
             filePath = "temp\\" + getFileNameByUrl(url, httpResponse.getEntity().getContentType().getValue());
-
+            System.out.println("-------------------------------"+url+"------------------------------------");
+            saveToLocal(response, filePath);
 
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            httpGet.releaseConnection();
         }
-
-
+        return filePath;
     }
 }
