@@ -33,7 +33,7 @@ public class LinkQueue {
 
     //保证每个URL只访问一次
     public static void addUnvisitedUrl (String url) {
-        if (url != null && !url.trim().equals("") && !visitedUrl.contains(url) && !unVisitedUrl.contians(url)) {
+        if (url != null && !url.trim().equals("") && !visitedUrl.contains(url) && !unVisitedUrl.contains(url)) {
             unVisitedUrl.enQueue(url);
         }
 

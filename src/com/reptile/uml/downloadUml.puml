@@ -1,0 +1,49 @@
+@startuml
+boundary frontend
+box "gems-reports-api"
+control ActivityReportController
+control ActivityHistoryManager
+end box
+box "gems-location"
+control TableController
+control TableRepositoryImpl
+end box
+box "gems-audit"
+control TableActivityAuditController
+control TableActivityAuditRepository
+end box
+frontend -> ActivityReportController : /api/reports/v1/reports/pithistory
+note left
+get Table Summary Data
+and totalDrop, totalWin
+end note
+ActivityReportController -> TableController : getAllTableEntity(request) / getAllTablesByIds(request)
+TableController -> TableRepositoryImpl : findAllPT(request) / findByIdIn(tableIds)
+TableRepositoryImpl -> ActivityReportController : return tables
+ActivityReportController -> ActivityHistoryManager : getTableActivityHistoryReport(tables, request, "InventoryMaintenance")
+note left
+reportType = "InventoryMaintenance"
+外面一层返回table summary
+end note
+ActivityHistoryManager -> TableActivityAuditController : restTemplate.exchange(gamingDate, tables)
+TableActivityAuditController -> TableActivityAuditRepository : findByActivityIn(activities)
+note right
+根据gamingDate和tableId组成的activityId从表activity_audit取数据
+end note
+TableActivityAuditRepository -> ActivityHistoryManager : return List<TableActivityAuditEntity>
+note left
+通过gameType, shift来过滤data
+end note
+ActivityHistoryManager -> ActivityReportController : return gamesActivityHistoryReport
+note right
+对于每张桌子(table)取出status为open或者做过post estimated win （type = HOURLY） 的inventoryMaintenanceUpdates
+然后对过滤出来的inventoryMaintenanceUpdates 按照时间降序排序,
+取出最多三条record，分别代表current， last，previous
+end note
+ActivityReportController -> frontend : GamesActivityHistoryResponse
+note right
+返回 totalWin, totalDrop, tableHistoryList
+end note
+
+@enduml
+

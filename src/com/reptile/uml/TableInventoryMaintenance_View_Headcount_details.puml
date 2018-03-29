@@ -1,0 +1,63 @@
+@startuml
+boundary frontend
+box "gems-inventory-composite"
+control InventoryMaintenanceController
+control InventoryServiceImpl
+control ActivityServiceImpl
+end box
+box "gems-inventory"
+control InventoryTransactionController
+control InventoryTransactionDetailRepository
+end box
+box "gems-activity"
+control ActivityController
+control ActivitySessionTransactionRepository
+control ActivitySessionRepository
+end box
+
+frontend -> InventoryMaintenanceController: api/tgames/v1/inventory/inventoryMaintenance/tableInventory/headcount/{transactionId}
+note left
+Menu -> Executive Information Menu
+-> Table Inventory Maintenance -> Headcount
+end note
+InventoryMaintenanceController -> InventoryServiceImpl : findTableTransactionById(transactionId)
+InventoryServiceImpl -> InventoryTransactionController : /inventory/api/inventoryTransactions/{transactionId}
+InventoryTransactionController -> InventoryTransactionDetailRepository : findOnePT(transactionId)
+note right
+根据transactionId从表chips_inventory_transaction获取数据
+end note
+InventoryTransactionDetailRepository -> InventoryServiceImpl : return GamingTableTransactionEntity
+InventoryServiceImpl -> InventoryMaintenanceController : return GamingTableTransactionEntity
+
+InventoryMaintenanceController -> ActivityServiceImpl : if (GamingTableTransactionEntity.getActivitySessionTransactionId()!=null)findActivitySessionTransaction(ActivitySessionTransactionId)
+note left
+条件分支，条件一：
+end note
+ActivityServiceImpl -> ActivityController : /activity/api/activities/activitySessionTransaction/{id}
+ActivityController -> ActivitySessionTransactionRepository : findOnePT(id)
+note right
+根据activitySessionTransactionId从activity_session_transaction表中获取数据
+end note
+ActivitySessionTransactionRepository -> ActivityServiceImpl : return GenericActivitySessionTransactionEntity
+ActivityServiceImpl -> InventoryMaintenanceController : return GenericActivitySessionTransactionEntity
+
+InventoryMaintenanceController -> ActivityServiceImpl : if (GamingTableTransactionEntity.getActivitySessionTransactionId()==null)findActivitySession(ActivityId,ActivitySessionId)
+
+note left
+条件分支，条件二：
+end note
+ActivityServiceImpl -> ActivityController : /activity/api/activities/{activityId}/sessions/{sessionId}
+ActivityController -> ActivitySessionRepository : findOnePT(sessionid)
+note right
+根据activitySessionId从activity_session表中获取数据
+end note
+ActivitySessionRepository -> ActivityServiceImpl : return GenericActivitySessionEntity
+ActivityServiceImpl -> InventoryMaintenanceController : return GenericActivitySessionEntity
+
+
+InventoryMaintenanceController -> frontend : return GenericApiResponse
+note left
+最后返回封装好数据的 headcountVo
+end note
+
+@enduml

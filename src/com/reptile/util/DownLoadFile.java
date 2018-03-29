@@ -6,7 +6,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 
 import java.io.*;
@@ -20,7 +23,7 @@ public class DownLoadFile {
         //移除http
         url = url.substring(7);
         //text/html 类型
-        if (contentType.indexOf("html") != -1) {
+        if (contentType.contains("html")) {
             url = url.replaceAll("[\\?/:*|<>\"]", "_") + ".html";
             return url;
         }else {
@@ -33,6 +36,7 @@ public class DownLoadFile {
      */
     private void saveToLocal (InputStream in, String filePath, String fileName) {
         try {
+
             File tempDir = new File(filePath);
             if (!tempDir.exists()) {
                 tempDir.mkdirs();
@@ -40,7 +44,7 @@ public class DownLoadFile {
             File tempFile = new File(tempDir, fileName);
             tempFile.createNewFile();
             DataOutputStream out = new DataOutputStream(new FileOutputStream(tempFile));
-            int len = 0;
+            int len;
             byte[] b = new byte[1024*5];
 
             while ((len = in.read(b,0,1024)) != -1){
@@ -67,6 +71,8 @@ public class DownLoadFile {
         RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(5000).setConnectionRequestTimeout(5000).setSocketTimeout(5000).build();
         //生成GetMethod对象并设置参数
         HttpGet httpGet = new HttpGet(url);
+        httpGet.setConfig(requestConfig);
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.1.2)");
         //设置请求重试处理
 
         try {
@@ -78,7 +84,6 @@ public class DownLoadFile {
             }
             //处理HTTP响应的内容
             InputStream content = httpResponse.getEntity().getContent();
-
             //根据网页URL生成保存时的文件名
             filePath = "temp\\";
             String fileName = getFileNameByUrl(url, httpResponse.getEntity().getContentType().getValue());

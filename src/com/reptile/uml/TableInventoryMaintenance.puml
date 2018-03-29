@@ -1,0 +1,45 @@
+@startuml
+boundary frontend
+box "gems-inventory-composite"
+control InventoryMaintenanceController
+entity InventoryServiceImpl
+entity AuditServiceImpl
+end box
+box "gems-inventory"
+control TableInventoryMaintenanceController
+control InventoryTransactionDetailRepository
+end box
+box "gems-audit"
+control TableActivityAuditController
+control TableActivityAuditRepository
+end box
+
+frontend -> InventoryMaintenanceController: api/tgames/v1/inventory/inventoryMaintenance/tableInventory/{location}
+note left
+Menu -> Executive Information Menu
+-> Table Inventory Maintenance
+end note
+
+InventoryMaintenanceController->InventoryServiceImpl:findTableInventory(location,startPage,pageSize)
+InventoryServiceImpl->TableInventoryMaintenanceController:/tableInventoryMaintenance/inventoryTransaction/{location}
+TableInventoryMaintenanceController->InventoryTransactionDetailRepository:findByAssociationIdAndAssociationStatusAndTypeAndTtvipRequest
+note left
+根据AssociationId, AssociationStatus,Type, 和 TtvipRequest 从表chips_inventory_transaction分页获取数据
+end note
+InventoryTransactionDetailRepository->InventoryServiceImpl:return Page<GamingTableTransactionEntity>
+InventoryServiceImpl->InventoryMaintenanceController:return PageInfo<GamingTableTransactionEntity>
+
+InventoryMaintenanceController->AuditServiceImpl:GamingTableTransactionEntity
+AuditServiceImpl->TableActivityAuditController: /activities/{activityId}
+TableActivityAuditController->TableActivityAuditRepository:findByActivity(activityId)
+note left
+根据activityId 从表activity_audit中获取数据
+end note
+TableActivityAuditRepository->AuditServiceImpl:return TableActivityAuditEntity
+AuditServiceImpl->InventoryMaintenanceController:return TableActivityAuditEntity
+
+InventoryMaintenanceController->frontend :GenericApiResponse
+note right
+返回 TableInventoryVo List
+end note
+@enduml

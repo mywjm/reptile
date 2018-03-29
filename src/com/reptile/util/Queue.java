@@ -25,7 +25,7 @@ public class Queue {
     }
 
     //判断队列是否包含某个
-    public boolean contians (Object o) {
+    public boolean contains (Object o) {
         return queue.contains(o);
     }
 
