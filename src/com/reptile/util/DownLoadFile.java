@@ -75,7 +75,7 @@ public class DownLoadFile {
         //生成GetMethod对象并设置参数
         HttpGet httpGet = new HttpGet(url);
         httpGet.setConfig(requestConfig);
-        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.1.2)");
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0");
         //设置请求重试处理
 
         try {
@@ -120,7 +120,7 @@ public class DownLoadFile {
             fos = new FileOutputStream(new File(path), true);
             FileChannel channel = fos.getChannel();
             String content = HtmlParserTool.getContent(url);
-            if (!content.equals("\r\n\r\n")) {
+            if (!content.isEmpty()) {
                 ByteBuffer byteBuffer = Charset.forName("utf8").encode(content);
                 int length = 0;
                 while ((length = channel.write(byteBuffer)) != 0) {
@@ -138,6 +138,25 @@ public class DownLoadFile {
                 }
             }
         }
+    }
+    public String getHtml(String url) {
+        Runtime runtime = Runtime.getRuntime();
+        Process process;
+        try{
+            process = runtime.exec("C:\\software\\phantomjs.exe C:\\temp\\parser.js "+url);
+            InputStream in = process.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(in, "UTF-8");
+            BufferedReader br = new BufferedReader(inputStreamReader);
+            StringBuilder sb = new StringBuilder();
+            String temp;
+            while ((temp = br.readLine()) != null) {
+                sb.append(temp);
+            }
+            return sb.toString();
 
+        }catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
+    }
 }

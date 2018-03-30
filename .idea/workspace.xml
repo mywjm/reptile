@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1894630e-b66d-4b26-bca5-abe14892fb2e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/reptile/util/WordTool.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/com/reptile/Main.java" afterPath="$PROJECT_DIR$/src/com/reptile/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/com/reptile/bean/MyCrawler.java" afterPath="$PROJECT_DIR$/src/com/reptile/bean/MyCrawler.java" />
       <change beforePath="$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java" afterPath="$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java" />
       <change beforePath="$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java" afterPath="$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_4284939.html.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;city=%E5%B9%BF%E5%B7%9E&amp;district=%E5%A4%A9%E6%B2%B3%E5%8C%BA#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;gx=全职&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;gx=兼职&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;gx=实习&amp;city=广州&amp;district=天河区&amp;isSchoolJob=1#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;yx=10k-15k&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;yx=15k-25k&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;yx=25k-50k&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;yx=2k以下&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;yx=50k以上&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_Java_px=new&amp;yx=5k-10k&amp;city=广州&amp;district=天河区#order.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_android_oquery=Java&amp;fromSearch=true&amp;labelWords=relative&amp;city=广州&amp;district=天河区.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_java后端_oquery=Java&amp;fromSearch=true&amp;labelWords=relative&amp;city=广州&amp;district=天河区.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_java大数据_oquery=Java&amp;fromSearch=true&amp;labelWords=relative&amp;city=广州&amp;district=天河区.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_java实习_oquery=Java&amp;fromSearch=true&amp;labelWords=relative&amp;city=广州&amp;district=天河区.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_java服务端_oquery=Java&amp;fromSearch=true&amp;labelWords=relative&amp;city=广州&amp;district=天河区.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/temp/_www.lagou.com_jobs_list_java架构师_oquery=Java&amp;fromSearch=true&amp;labelWords=relative&amp;city=广州&amp;district=天河区.html" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +20,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/reptile/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="18" column="148" lean-forward="false" selection-start-line="18" selection-start-column="148" selection-end-line="18" selection-end-column="148" />
+            <state relative-caret-position="177">
+              <caret line="16" column="61" lean-forward="true" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,18 +42,18 @@
       <file leaf-file-name="MyCrawler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/reptile/bean/MyCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="343">
+              <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HtmlParserTool.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HtmlParserTool.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="351">
+              <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownLoadFile.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DownLoadFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2401">
-              <caret line="129" column="33" lean-forward="false" selection-start-line="129" selection-start-column="33" selection-end-line="129" selection-end-column="33" />
+            <state relative-caret-position="204">
+              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Runtime.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/jre/lib/rt.jar!/java/lang/Runtime.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="91" column="58" lean-forward="false" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -131,10 +121,10 @@
         <option value="$PROJECT_DIR$/src/com/reptile/util/Queue.java" />
         <option value="$PROJECT_DIR$/src/com/reptile/util/LinkQueue.java" />
         <option value="$PROJECT_DIR$/src/com/reptile/util/WordTool.java" />
-        <option value="$PROJECT_DIR$/src/com/reptile/bean/MyCrawler.java" />
-        <option value="$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java" />
-        <option value="$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java" />
         <option value="$PROJECT_DIR$/src/com/reptile/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/reptile/bean/MyCrawler.java" />
+        <option value="$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java" />
+        <option value="$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java" />
       </list>
     </option>
   </component>
@@ -187,28 +177,7 @@
               <item name="reptile" type="b2602c69:ProjectViewProjectNode" />
               <item name="reptile" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reptile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-              <item name="bean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reptile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-              <item name="uml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reptile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reptile" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="reptile" type="b2602c69:ProjectViewProjectNode" />
@@ -435,7 +404,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294539" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43419874" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27215758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1648164" sideWeight="0.49586776" order="5" side_tool="false" content_ui="combo" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19978517" sideWeight="0.5041322" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -453,23 +422,32 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java</url>
+          <line>154</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="list" />
         <watch expression="HtmlParserTool.getContent(url)" />
+        <watch expression="sb.toString()" />
+        <watch expression="LinkQueue" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/reptile/uml/downloadUml.puml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="30" column="52" lean-forward="false" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/reptile/uml/TableInventoryMaintenance.puml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -612,13 +590,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/temp/www.baidu.com.html" />
     <entry file="file://$PROJECT_DIR$/temp/_news.baidu.com_.html" />
-    <entry file="jar://C:/software/htmlparser.jar!/org/htmlparser/Parser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/software/htmlparser.jar!/org/htmlparser/nodes/AbstractNode.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -790,6 +761,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/software/htmlparser.jar!/org/htmlparser/Parser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="79" column="33" lean-forward="false" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/jre/lib/rt.jar!/java/lang/Runtime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="91" column="58" lean-forward="false" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/reptile/util/WordTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -800,37 +787,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/reptile/bean/MyCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="343">
+          <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/reptile/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="148" lean-forward="false" selection-start-line="18" selection-start-column="148" selection-end-line="18" selection-end-column="148" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/reptile/util/DownLoadFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2401">
-          <caret line="129" column="33" lean-forward="false" selection-start-line="129" selection-start-column="33" selection-end-line="129" selection-end-column="33" />
+        <state relative-caret-position="204">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/reptile/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="16" column="61" lean-forward="true" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/reptile/util/HtmlParserTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -111,10 +111,14 @@ public class HtmlParserTool {
 
 
             for (int i = 0; i < list.size(); i++) {
-                String s = list.elementAt(i).toPlainTextString().replace(" ", "").replace("查看地图", "").trim();
+                String s = list.elementAt(i).toPlainTextString().replace(" ", "")
+                        .replace("查看地图", "").replace("&nbsp;", "").trim();
                 stringBuilder.append(s+"\r\n");
             }
-            stringBuilder.append("\r\n\r\n");
+            if (list.size() > 0) {
+                stringBuilder.append("\r\n\r\n");
+            }
+
             } catch (ParserException e) {
                  e.printStackTrace();
              }

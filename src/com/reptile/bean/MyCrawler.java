@@ -22,11 +22,12 @@ public class MyCrawler {
     public void crawling (String[] seeds) {
         //定义过滤器，提取以http://www.baidu.com开头的链接
         LinkFilter filter = (url) -> {
-            if (url.startsWith("https://www.lagou.com/jobs/"))
+            if (url.matches(".+?/jobs/\\d{7,9}\\.html"))
                 return true;
             else
                 return false;
         };
+
         //初始化URL队列
         initCrawlerWithSeeds(seeds);
         //循环条件 ： 待抓取的链接不空且抓取的网页不多于1000
@@ -37,16 +38,19 @@ public class MyCrawler {
                 continue;
             }
             DownLoadFile downLoadFile = new DownLoadFile();
+            Set<String> links;
             //下载网页
 //            downLoadFile.downloadFile(visitUrl);
             //提取网页信息
             if (filter.accept(visitUrl)) {
                 downLoadFile.saveAsText("C:\\D_Disk\\job.txt", visitUrl);
+                links = HtmlParserTool.extractLinks(visitUrl, filter);
+            }else {
+                links = HtmlParserTool.extractLinks(downLoadFile.getHtml(visitUrl), filter);
             }
             //该URL放入已访问的URL中
             LinkQueue.addVisitedUrl(visitUrl);
-            //提取出下载网页中的URL
-            Set<String> links = HtmlParserTool.extractLinks(visitUrl, filter);
+
             //新的未访问的URL入队
             for (String link : links) {
                 LinkQueue.addUnvisitedUrl(link);
