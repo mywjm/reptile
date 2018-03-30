@@ -38,7 +38,11 @@ public class MyCrawler {
             }
             DownLoadFile downLoadFile = new DownLoadFile();
             //下载网页
-            downLoadFile.downloadFile(visitUrl);
+//            downLoadFile.downloadFile(visitUrl);
+            //提取网页信息
+            if (filter.accept(visitUrl)) {
+                downLoadFile.saveAsText("C:\\D_Disk\\job.txt", visitUrl);
+            }
             //该URL放入已访问的URL中
             LinkQueue.addVisitedUrl(visitUrl);
             //提取出下载网页中的URL

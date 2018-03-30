@@ -13,6 +13,9 @@ import org.apache.http.util.EntityUtils;
 
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
 
 public class DownLoadFile {
 
@@ -97,4 +100,44 @@ public class DownLoadFile {
         }
         return filePath;
     }
+
+    public void saveAsWord(String path, String url) {
+        WordTool wordTool = null;
+        try {
+            wordTool = new WordTool();
+            wordTool.init(path);
+            wordTool.writDocument(HtmlParserTool.getContent(url));
+            wordTool.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void saveAsText(String path, String url) {
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(new File(path), true);
+            FileChannel channel = fos.getChannel();
+            String content = HtmlParserTool.getContent(url);
+            if (!content.equals("\r\n\r\n")) {
+                ByteBuffer byteBuffer = Charset.forName("utf8").encode(content);
+                int length = 0;
+                while ((length = channel.write(byteBuffer)) != 0) {
+                    System.out.println("-------------------------------write  "+url+"  successfully-----and length="+length+"-------------------------------");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        }
 }

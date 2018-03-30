@@ -65,15 +65,8 @@ public class HtmlParserTool {
         return links;
     }
     //将HTML页面的某些信息提取出来
-    public static void getContent(String url) {
-        String company1 = "";
-        String name = "";
-        String salary = "";
-        String experience = "";
-        String edu = "";
-        String type = "";
-        List<String> requirementAndBenefits = new ArrayList<>();
-
+    public static String getContent(String url) {
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             Parser parser = new Parser(url);
             parser.setEncoding("UTF-8");
@@ -91,20 +84,7 @@ public class HtmlParserTool {
                     return false;
                 }
             });
-            NodeFilter company = (node -> {
-                if ((node instanceof Div && "company".equals(((Div) node).getAttribute("class")))) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-            NodeFilter span = (node -> {
-                if (node instanceof Span ) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
+
             NodeFilter p1 = (node -> {
                 if (node instanceof Span && node.getParent() instanceof ParagraphTag && node.getParent().getParent() instanceof DefinitionListBullet
                         && "job_request".equals(((DefinitionListBullet) node.getParent().getParent()).getAttribute("class"))) {
@@ -129,14 +109,15 @@ public class HtmlParserTool {
             //得到所有经过过滤的标签
             NodeList list = parser.extractAllNodesThatMatch(orFilter1);
 
+
             for (int i = 0; i < list.size(); i++) {
-                System.out.println(list.elementAt(i).toPlainTextString().replace(" ","").replace("查看地图", "").trim());
-
+                String s = list.elementAt(i).toPlainTextString().replace(" ", "").replace("查看地图", "").trim();
+                stringBuilder.append(s+"\r\n");
             }
-
+            stringBuilder.append("\r\n\r\n");
             } catch (ParserException e) {
                  e.printStackTrace();
              }
-
+        return stringBuilder.toString();
     }
 }

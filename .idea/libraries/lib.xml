@@ -12,8 +12,11 @@
       <root url="jar://C:/software/httpcomponents-client-4.4.1/lib/httpmime-4.4.1.jar!/" />
       <root url="jar://C:/software/httpcomponents-client-4.4.1/lib/jna-4.1.0.jar!/" />
       <root url="jar://C:/software/httpcomponents-client-4.4.1/lib/jna-platform-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/Java2Word.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/src/lib/Java2Word.jar!/documentation" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>
