@@ -7,10 +7,7 @@ import org.htmlparser.filters.AndFilter;
 import org.htmlparser.filters.NodeClassFilter;
 import org.htmlparser.filters.OrFilter;
 import org.htmlparser.filters.TagNameFilter;
-import org.htmlparser.tags.DefinitionListBullet;
-import org.htmlparser.tags.Div;
-import org.htmlparser.tags.LinkTag;
-import org.htmlparser.tags.Span;
+import org.htmlparser.tags.*;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
@@ -88,8 +85,7 @@ public class HtmlParserTool {
                 }
             });
             NodeFilter ddFilter = (node -> {
-                if ((node instanceof DefinitionListBullet && "job_request".equals(((DefinitionListBullet) node).getAttribute("class")))
-                        || (node instanceof DefinitionListBullet && "job_bt".equals(((DefinitionListBullet) node).getAttribute("class")))) {
+                if ((node instanceof DefinitionListBullet && "job_bt".equals(((DefinitionListBullet) node).getAttribute("class")))) {
                     return true;
                 } else {
                     return false;
@@ -109,20 +105,33 @@ public class HtmlParserTool {
                     return false;
                 }
             });
-            NodeFilter p = (node -> {
-                if (node instanceof Span ) {
+            NodeFilter p1 = (node -> {
+                if (node instanceof Span && node.getParent() instanceof ParagraphTag && node.getParent().getParent() instanceof DefinitionListBullet
+                        && "job_request".equals(((DefinitionListBullet) node.getParent().getParent()).getAttribute("class"))) {
                     return true;
                 } else {
                     return false;
                 }
             });
-            OrFilter filter = new OrFilter(divFilter, ddFilter);
+
+            NodeFilter work_addr = (node -> {
+                if ( node instanceof Div && "work_addr".equals(((Div) node).getAttribute("class"))) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+            OrFilter filter = new OrFilter(divFilter, p1);
+            OrFilter orFilter = new OrFilter(ddFilter, filter);
+            OrFilter orFilter1 = new OrFilter(orFilter, work_addr);
 
             //得到所有经过过滤的标签
-            NodeList list = parser.extractAllNodesThatMatch(filter);
+            NodeList list = parser.extractAllNodesThatMatch(orFilter1);
 
             for (int i = 0; i < list.size(); i++) {
-                System.out.println(list.elementAt(i).toPlainTextString().replace(" ","").trim());
+                System.out.println(list.elementAt(i).toPlainTextString().replace(" ","").replace("查看地图", "").trim());
+
             }
 
             } catch (ParserException e) {
